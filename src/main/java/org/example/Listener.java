@@ -12,7 +12,7 @@ class Listener{
     private final static String QUEUE_NAME = "messages";
     private static final String HOST = "localhost";
 
-    private static ConnectionFactory factory = new ConnectionFactory();;
+    private ConnectionFactory factory = new ConnectionFactory();;
     private Channel channel;
     private Connection connection = factory.newConnection();
 
