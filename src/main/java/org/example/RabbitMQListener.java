@@ -26,15 +26,17 @@ class RabbitMQListener {
     };
 
     public RabbitMQListener() throws IOException, TimeoutException {
-        connection = factory.newConnection();
-        factory.setHost(configuration.getHost());
-        channel = connection.createChannel();
+        init();
     }
 
     public RabbitMQListener(RabbitMQConfiguration configuration) throws IOException, TimeoutException {
         this.configuration = configuration;
-        connection = factory.newConnection();
+        init();
+    }
+
+    public void init() throws IOException, TimeoutException {
         factory.setHost(configuration.getHost());
+        connection = factory.newConnection();
         channel = connection.createChannel();
     }
 
